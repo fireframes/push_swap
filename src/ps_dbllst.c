@@ -6,47 +6,49 @@
 /*   By: mmaksimo <mmaksimo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/02 22:59:41 by mmaksimo          #+#    #+#             */
-/*   Updated: 2024/07/02 23:14:24 by mmaksimo         ###   ########.fr       */
+/*   Updated: 2024/07/03 16:55:53 by mmaksimo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-t_stack	*ps_lstnew(int num)
+t_stack	*ps_dbllstnew(int data)
 {
 	t_stack	*new_node;
 
 	new_node = malloc(sizeof(*new_node));
 	if (new_node == NULL)
 		return (NULL);
-	new_node->num = num;
+	new_node->data = data;
 	new_node->next = NULL;
+	new_node->prev = NULL;
 	return (new_node);
 }
 
-void	ps_lstadd_back(t_stack **lst, t_stack *new)
+void	ps_dbllstadd_back(t_stack **head, t_stack *new_node)
 {
-	t_stack	*node;
+	t_stack	*tmp_node;
 
-	node = *lst;
-	if (node == NULL)
+	tmp_node = *head;
+	if (tmp_node == NULL)
 	{
-		*lst = new;
+		*head = new_node;
 		return ;
 	}
-	while (node->next != NULL)
-		node = node->next;
-	node->next = new;
+	while (tmp_node->next != NULL)
+		tmp_node = tmp_node->next;
+	tmp_node->next = new_node;
+	new_node->prev = tmp_node;
 }
 
-void	ps_lstclear(t_stack **lst)
+void	ps_dbllstclear(t_stack **head)
 {
 	t_stack	*node;
 
-	node = *lst;
+	node = *head;
 	if (node == NULL)
 		return ;
-	ps_lstclear(&(node->next));
+	ps_dbllstclear(&(node->next));
 	free(node);
-	*lst = NULL;
+	*head = NULL;
 }

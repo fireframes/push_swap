@@ -1,4 +1,4 @@
-1. Get the input data and store it to a linked list stack_a.
+1. Get the input data and store it to a doubly linked list stack_a.
 			- check args
 			- check if sorted
 			- check if more than 1
@@ -13,6 +13,9 @@
 ##
 			## sa (swap a): Swap the first 2 elements at the top of stack a.
 			## 	Do nothing if there is only one or no elements.
+
+			need to assign the head pointer to node2
+
 ##
 			## sb (swap b): Swap the first 2 elements at the top of stack b.
 			## 	Do nothing if there is only one or no elements.
