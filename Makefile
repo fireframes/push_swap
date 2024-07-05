@@ -10,7 +10,7 @@ LIBS		:=	$(LIBFT) $(LIBFTPRINTF)
 SRCS_DIR	:=	./src/
 SRCS 		:=	push_swap.c	\
 				ps_dbllst.c	\
-				instructions.c
+				ps_instructions.c
 
 SRCS		:=	$(addprefix $(SRCS_DIR), $(SRCS))
 

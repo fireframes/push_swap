@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ps_lst_ops.c                                       :+:      :+:    :+:   */
+/*   ps_dbllst.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mmaksimo <mmaksimo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/02 22:59:41 by mmaksimo          #+#    #+#             */
-/*   Updated: 2024/07/03 16:55:53 by mmaksimo         ###   ########.fr       */
+/*   Updated: 2024/07/05 22:14:24 by mmaksimo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,36 @@ void	ps_dbllstadd_back(t_stack **head, t_stack *new_node)
 	tmp_node->next = new_node;
 	new_node->prev = tmp_node;
 }
+
+void	ps_dbllstadd_front(t_stack **head, t_stack *new_node)
+{
+	t_stack *old_node;
+
+	old_node = *head;
+	new_node->next = old_node;
+	new_node->prev = NULL;
+	old_node->prev = new_node;
+	*head = new_node;
+}
+
+// MAYBE TAKE THIS PART FROM push_a FUNCTION?
+
+// void	ps_dbllstdel_head(t_stack **head)
+// {
+// 	t_stack	*old_head;
+// 	t_stack	*new_head;
+
+// 	old_head = *head;
+// 	if (old_head == NULL)
+// 		return ;
+// 	new_head = old_head->next;
+// 	new_head->prev = NULL;
+// 	*head = new_head;
+// 	free(old_head);
+// 	old_head = NULL;
+// }
+
+
 
 void	ps_dbllstclear(t_stack **head)
 {
