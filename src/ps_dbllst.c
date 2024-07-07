@@ -6,7 +6,7 @@
 /*   By: mmaksimo <mmaksimo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/02 22:59:41 by mmaksimo          #+#    #+#             */
-/*   Updated: 2024/07/05 22:14:24 by mmaksimo         ###   ########.fr       */
+/*   Updated: 2024/07/07 15:38:57 by mmaksimo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,16 +39,24 @@ void	ps_dbllstadd_back(t_stack **head, t_stack *new_node)
 		tmp_node = tmp_node->next;
 	tmp_node->next = new_node;
 	new_node->prev = tmp_node;
+	new_node->next = NULL;
 }
 
 void	ps_dbllstadd_front(t_stack **head, t_stack *new_node)
 {
-	t_stack *old_node;
+	t_stack *tmp_node;
 
-	old_node = *head;
-	new_node->next = old_node;
+	tmp_node = *head;
+	if (tmp_node == NULL)
+	{
+		new_node->next = NULL;
+		new_node->prev = NULL;
+		*head = new_node;
+		return ;
+	}
+	new_node->next = tmp_node;
 	new_node->prev = NULL;
-	old_node->prev = new_node;
+	tmp_node->prev = new_node;
 	*head = new_node;
 }
 
