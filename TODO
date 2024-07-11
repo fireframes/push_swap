@@ -1,50 +1,46 @@
 1. Get the input data and store it to a doubly linked list stack_a.
 			- check args
-			- check if sorted
-			- check if more than 1
+				argumet count must be 2 or more, and 2nd input must not be empty
+					return error if not
+					
+			- check both cases of input (several arguments or a string)
+				if a string call ft_split()
 
-			* better to have 1
+
+			- check if more than 1
+				if 1: what then?
 
 			- check for empty, alphabetical, special chars
 
 
-2. Implement sorting operations functions:
+2. Initialize stack A and append input numbers to it
 
-##
-			## sa (swap a): Swap the first 2 elements at the top of stack a.
-			## 	Do nothing if there is only one or no elements.
+	- handle int overflow, duplicates, syntax errors
+		if errors: free stack A and return error
+	- check for each input, if it is a long int
 
-			### assign the head pointer to node2
+	- append nodes to stack
 
-##
-			## sb (swap b): Swap the first 2 elements at the top of stack b.
-			## 	Do nothing if there is only one or no elements.
-##
-			## ss : sa and sb at the same time.
-##
-			## pa (push a): Take the first element at the top of b and put it at the top of a.
-			## 	Do nothing if b is empty.
-##
-			## pb (push b): Take the first element at the top of a and put it at the top of b.
-			## 	Do nothing if a is empty.
-##
-			## ra (rotate a): Shift up all elements of stack a by 1.
-			## 	The first element becomes the last one.
-##
-			## rb (rotate b): Shift up all elements of stack b by 1.
-			## 	The first element becomes the last one.
-##
-			## rr : ra and rb at the same time.
-##
-			## rra (reverse rotate a): Shift down all elements of stack a by 1.
-			## 	The last element becomes the first one.
-##
-			## rrb (reverse rotate b): Shift down all elements of stack b by 1.
-			## 	The last element becomes the first one.
-##
-			## rrr : rra and rrb at the same time.
+3.  Check if A is sorted
+	- if not sorted: implement sorting algorithm:
+		- check for 2 numbers
+			swap numbers
+		- check for 3 numbers
+			sort 3
+		- if > 3 nums
+			Turk Algorithm
 
-3. Implement sorting algorithm optimal for 2, 3 and 5 elems.
+4. Implement sorting algorithm optimal for 2, 3 and 5 elems.
 
-4. Optimize algo Big O
+5. Optimize algo Big O
+
+6. Utils: 
+	- functions for error handling
+	- min / max nodes
+
+// FIX naming ss/rr/rrr?
+
+// rev_rotate_rrr had a problem
+
+// problem with 1 or 2 numbers. head disappears
 

@@ -6,7 +6,7 @@
 /*   By: mmaksimo <mmaksimo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/02 22:59:41 by mmaksimo          #+#    #+#             */
-/*   Updated: 2024/07/07 17:56:50 by mmaksimo         ###   ########.fr       */
+/*   Updated: 2024/07/12 00:09:06 by mmaksimo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ void	ps_dbllstadd_back(t_stack **head, t_stack *new_node)
 
 void	ps_dbllstadd_front(t_stack **head, t_stack *new_node)
 {
-	t_stack *tmp_node;
+	t_stack	*tmp_node;
 
 	tmp_node = *head;
 	if (tmp_node == NULL)
@@ -59,25 +59,6 @@ void	ps_dbllstadd_front(t_stack **head, t_stack *new_node)
 	tmp_node->prev = new_node;
 	*head = new_node;
 }
-
-// MAYBE TAKE THIS PART FROM push_a FUNCTION?
-
-// void	ps_dbllstdel_head(t_stack **head)
-// {
-// 	t_stack	*old_head;
-// 	t_stack	*new_head;
-
-// 	old_head = *head;
-// 	if (old_head == NULL)
-// 		return ;
-// 	new_head = old_head->next;
-// 	new_head->prev = NULL;
-// 	*head = new_head;
-// 	free(old_head);
-// 	old_head = NULL;
-// }
-
-
 
 void	ps_dbllstclear(t_stack **head)
 {

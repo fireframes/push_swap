@@ -8,9 +8,14 @@ LIBFTPRINTF	:=	./lib/libftprintf.a
 LIBS		:=	$(LIBFT) $(LIBFTPRINTF)
 
 SRCS_DIR	:=	./src/
-SRCS 		:=	push_swap.c	\
-				ps_dbllst.c	\
-				ps_instructions.c
+SRCS 		:=	push_swap.c			\
+				ps_dbllst_init.c	\
+				ps_dbllst_utils.c	\
+				ps_swap.c			\
+				ps_push.c			\
+				ps_rotate.c			\
+				ps_rev_rotate.c
+
 
 SRCS		:=	$(addprefix $(SRCS_DIR), $(SRCS))
 
