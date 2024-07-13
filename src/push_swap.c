@@ -6,7 +6,7 @@
 /*   By: mmaksimo <mmaksimo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/26 20:17:55 by mmaksimo          #+#    #+#             */
-/*   Updated: 2024/07/12 02:15:34 by mmaksimo         ###   ########.fr       */
+/*   Updated: 2024/07/13 15:52:27 by mmaksimo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,28 +47,48 @@ int	main(int argc, char **argv)
 	// push_b(&stack_a, &stack_b);
 	// swap_ss(&stack_a, &stack_b);
 	// push_b(&stack_a, &stack_b);
-	// push_a(&stack_a, &stack_b);
 	// push_b(&stack_a, &stack_b);
 	// rotate_a(&stack_a);
 	// rotate_b(&stack_b);
 	// rotate_rr(&stack_a, &stack_b);
 	// push_b(&stack_a, &stack_b);
+	// 	push_a(&stack_a, &stack_b);
+
 	// rotate_rr(&stack_a, &stack_b);
-	// rev_rotate_rrr(&stack_a, &stack_b);
-	// rev_rotate_rrr(&stack_a, &stack_b);
-	// rev_rotate_rrr(&stack_a, &stack_b);
+	// rrr(&stack_a, &stack_b);
+	// rrr(&stack_a, &stack_b);
+	// rrr(&stack_a, &stack_b);
 	// push_b(&stack_a, &stack_b);
 	// push_b(&stack_a, &stack_b);
-	// 	push_b(&stack_a, &stack_b);
-	push_b(&stack_a, &stack_b);
-		push_b(&stack_a, &stack_b);
 	// push_b(&stack_a, &stack_b);
-	rev_rotate_rrr(&stack_a, &stack_b);
+	// push_b(&stack_a, &stack_b);
+	// push_b(&stack_a, &stack_b);
+	rrr(&stack_a, &stack_b);
+		rrr(&stack_a, &stack_b);
+	rotate_rr(&stack_a, &stack_b);
+
+	// push_a(&stack_a, &stack_b);
+	// push_a(&stack_a, &stack_b);
 
 	// push_a(&stack_a, &stack_b);
 	// rotate_b(&stack_b);
+	
+	int	size_a;
+	size_a = ps_dbllstcount(&stack_a);
+	
+	if (size_a > 1 && !is_sorted(&stack_a))
+	{
+		if (size_a == 2)
+			swap_a(&stack_a);
+		else if (size_a == 3)
+			sort_three(&stack_a);
+		else
+			sort_stacks(&stack_a, &stack_b);
+	}
+
 
 	ft_printf("\u2014\t\u2014\n");
+
 
 	// Print lists
 	t_stack *demo_a = stack_a;
@@ -96,7 +116,7 @@ int	main(int argc, char **argv)
 
 	ft_printf("a\tb\n");
 
-		if (stack_a)
+	if (stack_a)
 		ft_printf("head a: %d\n", stack_a->data);
 	else
 		ft_printf("head a: (null)\n");
@@ -123,16 +143,25 @@ int	main(int argc, char **argv)
 	// ft_printf("\nstack A last: %d\n", last_node_a->data);
 	// ft_printf("stack B last: %d\n", last_node_b->data);
 
-	
-	if (ps_dbllst_issorted(&stack_a))
-		printf("\nstack_a is sorted\n");
-	else
-		printf("\nstack_a is not sorted\n");
+
+	// if (ps_dbllst_issorted(&stack_a))
+	// 	printf("\nstack_a is sorted\n");
+	// else
+	// 	printf("\nstack_a is not sorted\n");
 		
-	if (ps_dbllst_issorted(&stack_b))
-		printf("\nstack_b is sorted\n");
-	else
-		printf("\nstack_b is not sorted\n");
+	// if (ps_dbllst_issorted(&stack_b))
+	// 	printf("\nstack_b is sorted\n");
+	// else
+	// 	printf("\nstack_b is not sorted\n");
+
+	// t_stack *max_a;
+	// t_stack *max_b;
+	
+	// max_a = ps_dbllstget_max(&stack_a);
+	// max_b = ps_dbllstget_max(&stack_b);
+
+	// ft_printf("\nstack A max: %d\n", max_a->data);
+	// ft_printf("stack B max: %d\n", max_b->data);
 	
 	ps_dbllstclear(&stack_a);
 	ps_dbllstclear(&stack_b);

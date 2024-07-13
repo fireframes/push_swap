@@ -6,7 +6,7 @@
 /*   By: mmaksimo <mmaksimo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/01 22:01:58 by mmaksimo          #+#    #+#             */
-/*   Updated: 2024/07/12 01:41:32 by mmaksimo         ###   ########.fr       */
+/*   Updated: 2024/07/13 15:26:29 by mmaksimo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,8 +32,8 @@ typedef struct s_stack
 
 t_stack	*ps_dbllstnew(int data);
 t_stack	*ps_dbllstget_last(t_stack **head);
+t_stack	*ps_dbllstget_max(t_stack **head);
 
-int		ps_dbllst_issorted(t_stack **head);
 int		ps_dbllstcount(t_stack **head);
 
 void	ps_dbllstadd_back(t_stack **lst, t_stack *new_node);
@@ -51,8 +51,12 @@ void	rotate_a(t_stack **stack_a);
 void	rotate_b(t_stack **stack_b);
 void	rotate_rr(t_stack **stack_a, t_stack **stack_b);
 
-void	rev_rotate_a(t_stack **stack_a);
-void	rev_rotate_b(t_stack **stack_b);
-void	rev_rotate_rrr(t_stack **stack_a, t_stack **stack_b);
+void	rev_rotate(t_stack **stack);
+void	rra(t_stack **stack_a);
+void	rrb(t_stack **stack_b);
+void	rrr(t_stack **stack_a, t_stack **stack_b);
+
+int		is_sorted(t_stack **head);
+void	sort_three(t_stack **stack_a);
 
 #endif

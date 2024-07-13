@@ -30,7 +30,6 @@
 		- if > 3 nums
 			Turk Algorithm
 
-4. Implement sorting algorithm optimal for 2, 3 and 5 elems.
 
 5. Optimize algo Big O
 
@@ -38,9 +37,13 @@
 	- functions for error handling
 	- min / max nodes
 
+
+
+>> 4. Implement sorting algorithm (optimal for 2, 3 and 5 elems)
+
+
 // FIX naming ss/rr/rrr?
 
-// rev_rotate_rrr had a problem
+// bring rr to rrr
 
-// problem with 1 or 2 numbers. head disappears
 

@@ -6,7 +6,7 @@
 /*   By: mmaksimo <mmaksimo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/12 00:08:38 by mmaksimo          #+#    #+#             */
-/*   Updated: 2024/07/12 01:41:04 by mmaksimo         ###   ########.fr       */
+/*   Updated: 2024/07/13 15:23:46 by mmaksimo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,19 +41,20 @@ t_stack	*ps_dbllstget_last(t_stack **head)
 	return (node);
 }
 
-int	ps_dbllst_issorted(t_stack **head)
+t_stack	*ps_dbllstget_max(t_stack **head)
 {
+	t_stack	*max;
 	t_stack	*node;
 
+	if (*head == NULL)
+		return (NULL);
 	node = *head;
-	if (node != NULL)
+	max = node;
+	while (node->next != NULL)
 	{
-		while (node->next != NULL)
-		{
-			if (node->data > node->next->data)
-				return (0);
-			node = node->next;
-		}
+		node = node->next;
+		if (node->data > max->data)
+			max = node;
 	}
-	return (1);
+	return (max);
 }

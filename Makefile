@@ -14,7 +14,9 @@ SRCS 		:=	push_swap.c			\
 				ps_swap.c			\
 				ps_push.c			\
 				ps_rotate.c			\
-				ps_rev_rotate.c
+				ps_rev_rotate.c		\
+				ps_sort_stacks.c	\
+				ps_sort_utils.c
 
 
 SRCS		:=	$(addprefix $(SRCS_DIR), $(SRCS))
