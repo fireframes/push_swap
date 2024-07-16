@@ -6,16 +6,16 @@
 /*   By: mmaksimo <mmaksimo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/11 23:36:32 by mmaksimo          #+#    #+#             */
-/*   Updated: 2024/07/13 15:20:01 by mmaksimo         ###   ########.fr       */
+/*   Updated: 2024/07/16 21:40:59 by mmaksimo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-/*	pa : Take the first element at the top of B and put it at the top of A.
+/*	Push A : Take the first element at the top of B and put it at the top of A.
 
 	Do nothing if B is empty.*/
-void	push_a(t_stack **stack_a, t_stack **stack_b)
+void	pa(t_stack **stack_a, t_stack **stack_b)
 {
 	t_stack	*push_node;
 	t_stack	*new_head_b;
@@ -31,14 +31,14 @@ void	push_a(t_stack **stack_a, t_stack **stack_b)
 	}
 	else
 		*stack_b = NULL;
-	ps_dbllstadd_front(stack_a, push_node);
+	dbllstadd_front(stack_a, push_node);
 	write(1, "pa\n", 3);
 }
 
-/*	pb : Take the first element at the top of A and put it at the top of B.
+/*	Push B : Take the first element at the top of A and put it at the top of B.
 
 	Do nothing if A is empty.*/
-void	push_b(t_stack **stack_a, t_stack **stack_b)
+void	pb(t_stack **stack_a, t_stack **stack_b)
 {
 	t_stack	*push_node;
 	t_stack	*new_head_a;
@@ -54,6 +54,6 @@ void	push_b(t_stack **stack_a, t_stack **stack_b)
 	}
 	else
 		*stack_a = NULL;
-	ps_dbllstadd_front(stack_b, push_node);
+	dbllstadd_front(stack_b, push_node);
 	write(1, "pb\n", 3);
 }

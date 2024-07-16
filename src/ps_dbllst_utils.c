@@ -6,13 +6,13 @@
 /*   By: mmaksimo <mmaksimo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/12 00:08:38 by mmaksimo          #+#    #+#             */
-/*   Updated: 2024/07/13 15:23:46 by mmaksimo         ###   ########.fr       */
+/*   Updated: 2024/07/16 16:01:36 by mmaksimo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	ps_dbllstcount(t_stack **head)
+int	dbllst_len(t_stack **head)
 {
 	t_stack	*node;
 	int		count;
@@ -29,10 +29,10 @@ int	ps_dbllstcount(t_stack **head)
 	return (count);
 }
 
-t_stack	*ps_dbllstget_last(t_stack **head)
+t_stack	*dbllstget_last(t_stack **head)
 {
 	t_stack	*node;
-	
+
 	node = *head;
 	if (node == NULL)
 		return (NULL);
@@ -41,7 +41,7 @@ t_stack	*ps_dbllstget_last(t_stack **head)
 	return (node);
 }
 
-t_stack	*ps_dbllstget_max(t_stack **head)
+t_stack	*dbllstget_max(t_stack **head)
 {
 	t_stack	*max;
 	t_stack	*node;

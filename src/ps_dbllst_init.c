@@ -6,13 +6,13 @@
 /*   By: mmaksimo <mmaksimo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/02 22:59:41 by mmaksimo          #+#    #+#             */
-/*   Updated: 2024/07/12 21:59:36 by mmaksimo         ###   ########.fr       */
+/*   Updated: 2024/07/16 16:00:46 by mmaksimo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-t_stack	*ps_dbllstnew(int data)
+t_stack	*dbllstnew(int data)
 {
 	t_stack	*new_node;
 
@@ -25,7 +25,7 @@ t_stack	*ps_dbllstnew(int data)
 	return (new_node);
 }
 
-void	ps_dbllstadd_back(t_stack **head, t_stack *new_node)
+void	dbllstadd_back(t_stack **head, t_stack *new_node)
 {
 	t_stack	*tmp_node;
 
@@ -42,7 +42,7 @@ void	ps_dbllstadd_back(t_stack **head, t_stack *new_node)
 	new_node->next = NULL;
 }
 
-void	ps_dbllstadd_front(t_stack **head, t_stack *new_node)
+void	dbllstadd_front(t_stack **head, t_stack *new_node)
 {
 	t_stack	*tmp_node;
 
@@ -60,14 +60,14 @@ void	ps_dbllstadd_front(t_stack **head, t_stack *new_node)
 	*head = new_node;
 }
 
-void	ps_dbllstclear(t_stack **head)
+void	dbllstclear(t_stack **head)
 {
 	t_stack	*node;
 
 	node = *head;
 	if (node == NULL)
 		return ;
-	ps_dbllstclear(&(node->next));
+	dbllstclear(&(node->next));
 	free(node);
 	*head = NULL;
 }

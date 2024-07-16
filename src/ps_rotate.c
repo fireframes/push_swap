@@ -6,49 +6,48 @@
 /*   By: mmaksimo <mmaksimo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/11 23:37:56 by mmaksimo          #+#    #+#             */
-/*   Updated: 2024/07/13 15:56:04 by mmaksimo         ###   ########.fr       */
+/*   Updated: 2024/07/16 16:15:29 by mmaksimo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-/*	ra : Shift up all elements of stack A by 1.
-
-	The first element becomes the last one.*/
-void	rotate_a(t_stack **stack_a)
+void	rotate(t_stack **stack)
 {
 	t_stack	*first;
 	t_stack	*second;
 
-	if (*stack_a == NULL)
+	if (*stack == NULL)
 		return ;
-	first = *stack_a;
+	first = *stack;
 	second = first->next;
-	ps_dbllstadd_back(stack_a, first);
-	*stack_a = second;
+	dbllstadd_back(stack, first);
+	second->prev = NULL;
+	*stack = second;
+}
+
+/*	Rotate A : Shift up all elements of stack A by 1.
+
+	The first element becomes the last one.*/
+void	ra(t_stack **stack_a)
+{
+	rotate(stack_a);
 	write(1, "ra\n", 3);
 }
 
-/*	rb : Shift up all elements of stack B by 1.
+/*	Rotate B : Shift up all elements of stack B by 1.
 
 	The first element becomes the last one.*/
-void	rotate_b(t_stack **stack_b)
+void	rb(t_stack **stack_b)
 {
-	t_stack	*first;
-	t_stack	*second;
-
-	if (*stack_b == NULL)
-		return ;
-	first = *stack_b;
-	second = first->next;
-	ps_dbllstadd_back(stack_b, first);
-	*stack_b = second;
+	rotate(stack_b);
 	write(1, "rb\n", 3);
 }
 
-/*	rr : ra and rb at the same time.*/
+/*	Rotate AB : ra and rb at the same time.*/
 void	rotate_rr(t_stack **stack_a, t_stack **stack_b)
 {
-	rotate_a(stack_a);
-	rotate_b(stack_b);
+	ra(stack_a);
+	rb(stack_b);
+	write(1, "rr\n", 3);
 }
