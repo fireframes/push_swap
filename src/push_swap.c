@@ -6,13 +6,12 @@
 /*   By: mmaksimo <mmaksimo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/26 20:17:55 by mmaksimo          #+#    #+#             */
-/*   Updated: 2024/07/18 22:48:07 by mmaksimo         ###   ########.fr       */
+/*   Updated: 2024/07/20 01:18:36 by mmaksimo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 #include <stdio.h>
-
 
 int	main(int argc, char **argv)
 {
@@ -51,7 +50,7 @@ int	main(int argc, char **argv)
 		else if (size_a == 3)
 			sort_three(&stack_a);
 		else
-			sort_stack(&stack_a);//, &stack_b);
+			sort_stack(&stack_a, &stack_b, size_a);
 	}
 
 
@@ -59,22 +58,22 @@ int	main(int argc, char **argv)
 
 
 	// Print lists
-	t_stack *demo_data = stack_a;
-	t_stack *demo_idx = stack_a;
+	t_stack *demo_a = stack_a;
+	t_stack *demo_b = stack_b;
 
-	while (demo_data || demo_idx)
+	while (demo_a || demo_b)
 	{
-		if (demo_data != NULL)
+		if (demo_a != NULL)
 		{
-			ft_printf("%d\t", demo_data->data);
-			demo_data = demo_data->next;
+			ft_printf("%d\t", demo_a->data);
+			demo_a = demo_a->next;
 		}
 		else
 			ft_printf(" \t");
-		if (demo_idx != NULL)
+		if (demo_b != NULL)
 		{
-			ft_printf("\t%d", demo_idx->idx);
-			demo_idx = demo_idx->next;
+			ft_printf("\t%d", demo_b->idx);
+			demo_b = demo_b->next;
 		}
 		else
 			ft_printf(" \t");
@@ -82,7 +81,7 @@ int	main(int argc, char **argv)
 	}
 	ft_printf("\u2014\t\u2014\n");
 
-	ft_printf("in\tsrt\n");
+	ft_printf("a\tb\n");
 
 	// if (stack_a)
 	// 	ft_printf("head a: %d\n", stack_a->data);

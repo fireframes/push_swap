@@ -6,19 +6,18 @@
 /*   By: mmaksimo <mmaksimo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/16 22:02:25 by mmaksimo          #+#    #+#             */
-/*   Updated: 2024/07/18 22:59:59 by mmaksimo         ###   ########.fr       */
+/*   Updated: 2024/07/19 23:17:36 by mmaksimo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
 
 static int	*stack_to_array(t_stack **stack, uint32_t size)
 {
 	t_stack		*node;
 	int			*array;
 	int			i;
-	
+
 	array = malloc(sizeof(int) * size);
 	if (!array)
 		return (NULL);
@@ -63,7 +62,7 @@ static void	bubble_sort(int *array, uint32_t size)
 		j = 0;
 		while (j < size - i - 1)
 		{
-			if(array[j] > array[j + 1])
+			if (array[j] > array[j + 1])
 			{
 				tmp = array[j];
 				array[j] = array[j + 1];
@@ -104,12 +103,12 @@ void	normalize_stack(t_stack **stack, uint32_t size)
 	int			*copy;
 	int			i;
 
-	input = stack_to_array(stack, size); //reminder : there is no duplicate!
+	input = stack_to_array(stack, size);
 	if (!input)
-		return ; // raise error!
-	copy = copy_array(input, size); // copy the numbers from input
+		return ;
+	copy = copy_array(input, size);
 	if (!copy)
-		return ; // raise error?
+		return ;
 	bubble_sort(copy, size);
 	normalize_input(input, copy, size);
 	node = *stack;
@@ -120,12 +119,15 @@ void	normalize_stack(t_stack **stack, uint32_t size)
 		node = node->next;
 		i++;
 	}
-	// free_array(input);
-	// free_array(copy);
+	free(input);
+	free(copy);
 }
 
-//set input nums to corresponding positions of sorted copy
-	
+// raise error after bad allocation?
+//reminder : there is no duplicates!
+// set ptrs to NULL after freeing?
 /*
-Remark : This is actually not the most efficient way to implement them. If you want a more efficient program, please learn about binary search or unordered_map (hash)
+Remark : This is actually not the most efficient way
+to implement them. If you want a more efficient program, 
+please learn about binary search or unordered_map (hash)
 */
