@@ -6,7 +6,7 @@
 /*   By: mmaksimo <mmaksimo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/26 20:17:55 by mmaksimo          #+#    #+#             */
-/*   Updated: 2024/07/16 21:36:13 by mmaksimo         ###   ########.fr       */
+/*   Updated: 2024/07/18 22:48:07 by mmaksimo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,17 +41,17 @@ int	main(int argc, char **argv)
 	ft_printf("\u2014\t\u2014\n\n");
 
 
-	int	size_a;
-	size_a = dbllst_len(&stack_a);
+	uint32_t	size_a;
+	size_a = dbllst_size(&stack_a);
 
 	if (size_a > 1 && !is_sorted(&stack_a))
 	{
 		if (size_a == 2)
-			swap_a(&stack_a);
+			sa(&stack_a);
 		else if (size_a == 3)
 			sort_three(&stack_a);
 		else
-			sort_stack(&stack_a, &stack_b);
+			sort_stack(&stack_a);//, &stack_b);
 	}
 
 
@@ -59,22 +59,22 @@ int	main(int argc, char **argv)
 
 
 	// Print lists
-	t_stack *demo_a = stack_a;
-	t_stack *demo_b = stack_b;
+	t_stack *demo_data = stack_a;
+	t_stack *demo_idx = stack_a;
 
-	while (demo_a || demo_b)
+	while (demo_data || demo_idx)
 	{
-		if (demo_a != NULL)
+		if (demo_data != NULL)
 		{
-			ft_printf("%d\t", demo_a->data);
-			demo_a = demo_a->next;
+			ft_printf("%d\t", demo_data->data);
+			demo_data = demo_data->next;
 		}
 		else
 			ft_printf(" \t");
-		if (demo_b != NULL)
+		if (demo_idx != NULL)
 		{
-			ft_printf("%d", demo_b->data);
-			demo_b = demo_b->next;
+			ft_printf("\t%d", demo_idx->idx);
+			demo_idx = demo_idx->next;
 		}
 		else
 			ft_printf(" \t");
@@ -82,54 +82,19 @@ int	main(int argc, char **argv)
 	}
 	ft_printf("\u2014\t\u2014\n");
 
-	ft_printf("a\tb\n");
+	ft_printf("in\tsrt\n");
 
-	if (stack_a)
-		ft_printf("head a: %d\n", stack_a->data);
-	else
-		ft_printf("head a: (null)\n");
-
-	if (stack_b)
-		ft_printf("head b: %d\n", stack_b->data);
-	else
-		ft_printf("head b: (null)\n");
-
-	// ft_printf("\nstack A count: %d\n", dbllst_len(&stack_a));
-	// ft_printf("stack B count: %d\n", dbllst_len(&stack_b));
-
-	// t_stack *last_node_a = dbllstget_last(&stack_a);
-	// t_stack *last_node_b = dbllstget_last(&stack_b);
-
-	// ft_printf("\nstack A last: %d\n", last_node_a->data);
-	// ft_printf("stack B last: %d\n", last_node_b->data);
-
-	// rotate_rr(&stack_a, &stack_b);
-
-	// last_node_a = dbllstget_last(&stack_a);
-	// last_node_b = dbllstget_last(&stack_b);
-
-	// ft_printf("\nstack A last: %d\n", last_node_a->data);
-	// ft_printf("stack B last: %d\n", last_node_b->data);
-
-
-	// if (ps_dbllst_issorted(&stack_a))
-	// 	printf("\nstack_a is sorted\n");
+	// if (stack_a)
+	// 	ft_printf("head a: %d\n", stack_a->data);
 	// else
-	// 	printf("\nstack_a is not sorted\n");
+	// 	ft_printf("head a: (null)\n");
 
-	// if (ps_dbllst_issorted(&stack_b))
-	// 	printf("\nstack_b is sorted\n");
+	// if (stack_b)
+	// 	ft_printf("head b: %d\n", stack_b->data);
 	// else
-	// 	printf("\nstack_b is not sorted\n");
+	// 	ft_printf("head b: (null)\n");
 
-	// t_stack *max_a;
-	// t_stack *max_b;
 
-	// max_a = dbllstget_max(&stack_a);
-	// max_b = dbllstget_max(&stack_b);
-
-	// ft_printf("\nstack A max: %d\n", max_a->data);
-	// ft_printf("stack B max: %d\n", max_b->data);
 
 	dbllstclear(&stack_a);
 	dbllstclear(&stack_b);

@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ps_dbllst_utils.c                                  :+:      :+:    :+:   */
+/*   dbllst_utils.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mmaksimo <mmaksimo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -12,7 +12,7 @@
 
 #include "push_swap.h"
 
-int	dbllst_len(t_stack **head)
+uint32_t	dbllst_size(t_stack **head)
 {
 	t_stack	*node;
 	int		count;

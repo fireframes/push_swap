@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ps_rev_rotate.c                                    :+:      :+:    :+:   */
+/*   rev_rotate.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mmaksimo <mmaksimo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/11 23:39:11 by mmaksimo          #+#    #+#             */
-/*   Updated: 2024/07/16 16:15:09 by mmaksimo         ###   ########.fr       */
+/*   Updated: 2024/07/17 18:24:55 by mmaksimo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	rev_rotate(t_stack **stack)
+static void	rev_rotate(t_stack **stack)
 {
 	t_stack *tmp;
 	t_stack	*last;
@@ -48,7 +48,7 @@ void	rrb(t_stack **stack_b)
 /*	Reverse Rotate AB : rra and rrb at the same time.*/
 void	rrr(t_stack **stack_a, t_stack **stack_b)
 {
-	rra(stack_a);
-	rrb(stack_b);
+	rev_rotate(stack_a);
+	rev_rotate(stack_b);
 	write(1, "rrr\n", 4);
 }
