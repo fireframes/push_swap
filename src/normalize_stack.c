@@ -6,13 +6,13 @@
 /*   By: mmaksimo <mmaksimo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/16 22:02:25 by mmaksimo          #+#    #+#             */
-/*   Updated: 2024/07/19 23:17:36 by mmaksimo         ###   ########.fr       */
+/*   Updated: 2024/07/23 22:57:30 by mmaksimo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static int	*stack_to_array(t_stack **stack, uint32_t size)
+static int	*stack_to_array(t_stack **stack, int size)
 {
 	t_stack		*node;
 	int			*array;
@@ -32,10 +32,10 @@ static int	*stack_to_array(t_stack **stack, uint32_t size)
 	return (array);
 }
 
-static int	*copy_array(int *array, uint32_t size)
+static int	*copy_array(int *array, int size)
 {
-	int			*copy;
-	uint32_t	i;
+	int	*copy;
+	int	i;
 
 	copy = malloc(sizeof(int) * size);
 	if (!copy)
@@ -49,10 +49,10 @@ static int	*copy_array(int *array, uint32_t size)
 	return (copy);
 }
 
-static void	bubble_sort(int *array, uint32_t size)
+static void	bubble_sort(int *array, int size)
 {
-	uint32_t	i;
-	uint32_t	j;
+	int	i;
+	int	j;
 	int			tmp;
 
 	i = 0;
@@ -74,10 +74,10 @@ static void	bubble_sort(int *array, uint32_t size)
 	}
 }
 
-static void	normalize_input(int *input, int *copy, uint32_t size)
+static void	normalize_input(int *input, int *copy, int size)
 {
-	uint32_t	i;
-	uint32_t	j;
+	int	i;
+	int	j;
 
 	i = 0;
 	while (i < size)
@@ -96,7 +96,7 @@ static void	normalize_input(int *input, int *copy, uint32_t size)
 	}
 }
 
-void	normalize_stack(t_stack **stack, uint32_t size)
+void	normalize_stack(t_stack **stack, int size)
 {
 	t_stack		*node;
 	int			*input;

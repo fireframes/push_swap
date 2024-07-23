@@ -28,22 +28,40 @@
 		- check for 3 numbers
 			sort 3
 		- if > 3 nums
-			Turk Algorithm
+			Radix sort
 
+4. Implement sorting algorithm (optimal for 2, 3 and 5 elems)
+	- infinite loop with 5 elems..
 
-5. Optimize algo Big O
+5. Optimize program 
 
 6. Utils: 
 	- functions for error handling
 	- min / max nodes
 
 
-
->> 4. Implement sorting algorithm (optimal for 2, 3 and 5 elems)
-
-
-// FIX naming ss/rr/rrr?
-
-// bring rr to rrr
+CHECK NULLS WHERE NEEDED!
 
 
+
+
+
+
+
+
+
+
+
+// static int	all_ones(t_stack *head, int bit_pos)
+// {
+// 	t_stack	*node;
+
+// 	node = head;
+// 	while (node)
+// 	{
+// 		if ((node->idx >> bit_pos & 1) == 0)
+// 			return (0);
+// 		node = node->next;
+// 	}
+// 	return (1);
+// }

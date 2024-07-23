@@ -6,7 +6,7 @@
 /*   By: mmaksimo <mmaksimo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/01 22:01:58 by mmaksimo          #+#    #+#             */
-/*   Updated: 2024/07/20 01:19:04 by mmaksimo         ###   ########.fr       */
+/*   Updated: 2024/07/24 01:26:23 by mmaksimo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,10 +52,13 @@ void		rrb(t_stack **stack_b);
 void		rrr(t_stack **stack_a, t_stack **stack_b);
 
 int			is_sorted(t_stack **head);
-void		sort_three(t_stack **stack_a);
+void		init_idx(t_stack **stack_a);
+t_stack		*get_min_node(t_stack **stack_a);
+void		move_min_to_push(t_stack **stack_a, int size_a);
 
-void		sort_stack(t_stack **stack_a, t_stack **stack_b, uint32_t size_a);
-void		normalize_stack(t_stack **stack, uint32_t size);
-// void		radix_sort(t_stack **stack_a, t_stack **stack_b);
+void		sort_three(t_stack **stack_a);
+void		sort_four_five(t_stack **stack_a, t_stack **stack_b, int size_a);
+void		normalize_stack(t_stack **stack, int size);
+void		radix_sort(t_stack **stack_a, t_stack **stack_b, int size);
 
 #endif
