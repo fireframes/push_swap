@@ -6,13 +6,28 @@
 /*   By: mmaksimo <mmaksimo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/13 15:58:28 by mmaksimo          #+#    #+#             */
-/*   Updated: 2024/07/24 01:41:27 by mmaksimo         ###   ########.fr       */
+/*   Updated: 2024/07/28 04:20:47 by mmaksimo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	sort_three(t_stack **stack_a)
+static int	get_max_pos(int stack_size)
+{
+	int	max_pos;
+	int	max_num;
+
+	max_pos = 0;
+	max_num = stack_size - 1;
+	while (max_num > 0)
+	{
+		max_num >>= 1;
+		max_pos++;
+	}
+	return (max_pos);
+}
+
+static void	sort_three(t_stack **stack_a)
 {
 	t_stack	*max;
 	t_stack	*head;
@@ -29,7 +44,7 @@ void	sort_three(t_stack **stack_a)
 		sa(stack_a);
 }
 
-void	sort_four_five(t_stack **stack_a, t_stack **stack_b, int size_a)
+static void	sort_four_five(t_stack **stack_a, t_stack **stack_b, int size_a)
 {
 	int		nodes_to_push;
 	int		i;
@@ -49,40 +64,50 @@ void	sort_four_five(t_stack **stack_a, t_stack **stack_b, int size_a)
 		pa(stack_a, stack_b);
 }
 
-void	radix_sort(t_stack **stack_a, t_stack **stack_b, int size)
+static void	radix_sort(t_stack **stack_a, t_stack **stack_b, int size)
 {
+	int	max_pos;
 	int	i;
 	int	j;
-	int	max_num;
-	int	max_pos;
 
-	max_num = size - 1;
-	max_pos = 0;
-	while (max_num > 0)
-	{
-		max_num >>= 1;
-		max_pos++;
-	}
+	max_pos = get_max_pos(size);
 	i = 0;
 	while (i < max_pos)
 	{
-		int all_sorted = 1;
 		j = 0;
 		while (j < size)
 		{
 			if ((*stack_a)->idx >> i & 1)
 				ra(stack_a);
 			else
-			{
 				pb(stack_a, stack_b);
-				all_sorted = 0;
-			}
 			j++;
 		}
 		while (*stack_b)
 			pa(stack_a, stack_b);
-		if (all_sorted && is_sorted(stack_a))
-			break;
+		if (is_sorted(stack_a))
+			break ;
 		i++;
+	}
+}
+
+void	sort_stack(t_stack **stack_a, t_stack **stack_b)
+{
+	uint32_t	size_a;
+
+	size_a = dbllst_size(stack_a);
+	if (size_a > 1 && !is_sorted(stack_a))
+	{
+		if (size_a == 2)
+			sa(stack_a);
+		else if (size_a == 3)
+			sort_three(stack_a);
+		else if (size_a == 4 || size_a == 5)
+			sort_four_five(stack_a, stack_b, size_a);
+		else
+		{
+			normalize_stack(stack_a, size_a);
+			radix_sort(stack_a, stack_b, size_a);
+		}
 	}
 }

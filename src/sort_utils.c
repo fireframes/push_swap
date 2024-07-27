@@ -6,7 +6,7 @@
 /*   By: mmaksimo <mmaksimo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/13 15:23:12 by mmaksimo          #+#    #+#             */
-/*   Updated: 2024/07/24 01:34:39 by mmaksimo         ###   ########.fr       */
+/*   Updated: 2024/07/28 04:18:22 by mmaksimo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,8 +32,8 @@ int	is_sorted(t_stack **head)
 void	init_idx(t_stack **stack_a)
 {
 	t_stack	*node;
-	int 	i;
-	
+	int		i;
+
 	node = *stack_a;
 	i = 0;
 	while (node)
@@ -44,11 +44,11 @@ void	init_idx(t_stack **stack_a)
 	}
 }
 
-t_stack *get_min_node(t_stack **stack_a)
+t_stack	*get_min_node(t_stack **stack_a)
 {
 	t_stack	*node;
 	t_stack	*min_node;
-	
+
 	node = *stack_a;
 	min_node = node;
 	while (node)
@@ -78,9 +78,11 @@ void	move_min_to_push(t_stack **stack_a, int size_a)
 		}
 	}
 	else
+	{
 		while (position)
 		{
 			ra(stack_a);
 			position--;
 		}
+	}
 }

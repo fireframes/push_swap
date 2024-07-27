@@ -6,7 +6,7 @@
 /*   By: mmaksimo <mmaksimo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/16 22:02:25 by mmaksimo          #+#    #+#             */
-/*   Updated: 2024/07/23 22:57:30 by mmaksimo         ###   ########.fr       */
+/*   Updated: 2024/07/28 03:46:25 by mmaksimo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,9 @@
 
 static int	*stack_to_array(t_stack **stack, int size)
 {
-	t_stack		*node;
-	int			*array;
-	int			i;
+	t_stack	*node;
+	int		*array;
+	int		i;
 
 	array = malloc(sizeof(int) * size);
 	if (!array)
@@ -53,7 +53,7 @@ static void	bubble_sort(int *array, int size)
 {
 	int	i;
 	int	j;
-	int			tmp;
+	int	tmp;
 
 	i = 0;
 	tmp = array[i];

@@ -1,67 +1,56 @@
-1. Get the input data and store it to a doubly linked list stack_a.
-			- check args
-				argumet count must be 2 or more, and 2nd input must not be empty
-					return error if not
-					
-			- check both cases of input (several arguments or a string)
-				if a string call ft_split()
+/*
+- skip check for leading 0s signed 0s?
+
+	if not, where to put:
+		check_zero(input[i]) == -1)
 
 
-			- check if more than 1
-				if 1: what then?
+- CHECK NULL ptrs WHERE NEEDED!
 
-			- check for empty, alphabetical, special chars
-
-
-2. Initialize stack A and append input numbers to it
-
-	- handle int overflow, duplicates, syntax errors
-		if errors: free stack A and return error
-	- check for each input, if it is a long int
-
-	- append nodes to stack
-
-3.  Check if A is sorted
-	- if not sorted: implement sorting algorithm:
-		- check for 2 numbers
-			swap numbers
-		- check for 3 numbers
-			sort 3
-		- if > 3 nums
-			Radix sort
-
-4. Implement sorting algorithm (optimal for 2, 3 and 5 elems)
-	- infinite loop with 5 elems..
-
-5. Optimize program 
-
-6. Utils: 
-	- functions for error handling
-	- min / max nodes
-
-
-CHECK NULLS WHERE NEEDED!
+- check still reachable bytes!
 
 
 
 
 
 
+	Print lists
 
+	t_stack *demo_a = stack_a;
+	t_stack *demo_b = stack_b;
 
+	ft_printf("\u2014\t\u2014\n");
 
+	while (demo_a || demo_b)
+	{
+		if (demo_a != NULL)
+		{
+			ft_printf("%d\t", demo_a->data);
+			demo_a = demo_a->next;
+		}
+		else
+			ft_printf(" \t");
+		if (demo_b != NULL)
+		{
+			ft_printf("\t%d", demo_b->idx);
+			demo_b = demo_b->next;
+		}
+		else
+			ft_printf(" \t");
+		ft_printf("\n");
+	}
+	ft_printf("\u2014\t\u2014\n");
 
+	ft_printf("a\tb\n");
 
-// static int	all_ones(t_stack *head, int bit_pos)
-// {
-// 	t_stack	*node;
+	if (stack_a)
+		ft_printf("head a: %d\n", stack_a->data);
+	else
+		ft_printf("head a: (null)\n");
 
-// 	node = head;
-// 	while (node)
-// 	{
-// 		if ((node->idx >> bit_pos & 1) == 0)
-// 			return (0);
-// 		node = node->next;
-// 	}
-// 	return (1);
-// }
+	if (stack_b)
+		ft_printf("head b: %d\n", stack_b->data);
+	else
+		ft_printf("head b: (null)\n");
+
+*/

@@ -14,7 +14,7 @@
 
 static void	rev_rotate(t_stack **stack)
 {
-	t_stack *tmp;
+	t_stack	*tmp;
 	t_stack	*last;
 	t_stack	*before_last;
 
@@ -27,6 +27,7 @@ static void	rev_rotate(t_stack **stack)
 	before_last->next = NULL;
 	dbllstadd_front(stack, tmp);
 }
+
 /*	Reverse Rotate A : Shift down all elements of stack A by 1.
 
 	The last element becomes the first one.*/

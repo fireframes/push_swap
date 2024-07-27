@@ -1,6 +1,6 @@
 NAME		:=	push_swap
 
-CFLAGS		:=	-Wextra -Wall -Werror -g
+CFLAGS		:=	-Wextra -Wall -Werror
 HEADERS		:=	-Iinclude
 
 LIBFT		:=	./lib/libft.a
@@ -8,11 +8,13 @@ LIBFTPRINTF	:=	./lib/libftprintf.a
 LIBS		:=	$(LIBFT) $(LIBFTPRINTF)
 
 SRCS_DIR	:=	./src/
-SRCS 		:=	push_swap.c		\
-				dbllst_init.c	\
-				dbllst_utils.c	\
-				swap.c			\
-				push.c			\
+SRCS 		:=	push_swap.c			\
+				push_swap_utils.c	\
+				check_parse_input.c	\
+				dbllst_init.c		\
+				dbllst_utils.c		\
+				swap.c				\
+				push.c				\
 				rotate.c			\
 				rev_rotate.c		\
 				normalize_stack.c	\
