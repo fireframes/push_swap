@@ -6,7 +6,7 @@
 /*   By: mmaksimo <mmaksimo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/26 20:17:55 by mmaksimo          #+#    #+#             */
-/*   Updated: 2024/07/28 03:47:20 by mmaksimo         ###   ########.fr       */
+/*   Updated: 2024/07/28 16:56:31 by mmaksimo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,10 +31,10 @@ int	main(int argc, char **argv)
 	t_stack	*stack_b;
 
 	input = parse_args(argc, argv);
-	if (!input)
-		error_exit();
+	if (input == NULL)
+		error_exit(input);
 	if (!check_input(input))
-		error_exit();
+		error_exit(input);
 	stack_a = NULL;
 	stack_b = NULL;
 	init_stack(input, &stack_a);

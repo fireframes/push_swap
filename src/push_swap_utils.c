@@ -6,14 +6,16 @@
 /*   By: mmaksimo <mmaksimo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/28 02:24:39 by mmaksimo          #+#    #+#             */
-/*   Updated: 2024/07/28 03:21:57 by mmaksimo         ###   ########.fr       */
+/*   Updated: 2024/07/28 16:57:56 by mmaksimo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	error_exit(void)
+void	error_exit(char **split)
 {
+	if (split)
+		free_split(split);
 	ft_putstr_fd("Error\n", 2);
 	exit(EXIT_FAILURE);
 }
@@ -23,12 +25,17 @@ void	free_split(char **split)
 	int	i;
 
 	i = 0;
-	while (split[i])
+	if (split)
 	{
-		free(split[i]);
-		i++;
+		while (split[i])
+		{
+			free(split[i]);
+			split[i] = NULL;
+			i++;
+		}
+		free(split);
+		split = NULL;
 	}
-	free(split);
 }
 
 int	check_zero(char *nptr)

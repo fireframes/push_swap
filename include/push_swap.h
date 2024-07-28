@@ -6,7 +6,7 @@
 /*   By: mmaksimo <mmaksimo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/01 22:01:58 by mmaksimo          #+#    #+#             */
-/*   Updated: 2024/07/28 04:21:09 by mmaksimo         ###   ########.fr       */
+/*   Updated: 2024/07/28 16:57:36 by mmaksimo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,7 @@ void		move_min_to_push(t_stack **stack_a, int size_a);
 void		sort_stack(t_stack **stack_a, t_stack **stack_b);
 void		normalize_stack(t_stack **stack, int size);
 
-void		error_exit(void);
+void		error_exit(char **split);
 void		free_split(char **split);
 int			check_zero(char *nptr);
 long int	ft_atol(const char *nptr);

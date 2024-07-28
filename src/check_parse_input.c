@@ -6,7 +6,7 @@
 /*   By: mmaksimo <mmaksimo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/28 02:28:34 by mmaksimo          #+#    #+#             */
-/*   Updated: 2024/07/28 03:45:37 by mmaksimo         ###   ########.fr       */
+/*   Updated: 2024/07/28 17:00:11 by mmaksimo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,9 +22,9 @@ char	**parse_args(int argc, char **argv)
 	if (argc < 2)
 	{
 		ft_printf("No arguments provided\n");
-		exit(EXIT_FAILURE);
+		return (NULL);
 	}
-	if (argc == 2)
+	else if (argc == 2)
 	{
 		input = ft_split(argv[1], ' ');
 		if (input == NULL)
